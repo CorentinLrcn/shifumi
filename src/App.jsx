@@ -10,13 +10,18 @@ function computerChoice() {
 }
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [playerScore, setPlayerScore] = useState(0)
+  const [compScore, setCompScore] = useState(0)
   const [round, setRound] = useState(1)
   const [computerHand, setComputerHand] = useState(computerChoice())
   const [result, setResult] = useState('Egalite')
+  const [alertText, setAlertText] = useState('Egalite')
 
   const [showResult, setShowResult] = useState(false)
 
+  function alertUser() {
+    alert(alertText)
+  }
 
   function reveal(playerChoice) {
     setComputerHand(computerChoice())
@@ -24,16 +29,23 @@ function App() {
     console.log(computerHand)
     if (playerChoice == computerHand) {
       setResult('Egalite')
+      alert('Egalite')
+
     } else if ((playerChoice == 'Rock' && computerHand == 'Paper') || (playerChoice == 'Paper' && computerHand == 'Scissors') || (playerChoice == 'Scissors' && computerHand == 'Rock')) {
       setResult('Perdu')
       var newRound = round + 1
       setRound(newRound)
+      var newScore = compScore + 1
+      setCompScore(newScore)
+      alert('Ordinateur a gagné')
+
     } else {
       setResult('Gagné')
       var newRound = round + 1
       setRound(newRound)
-      var newScore = count + 1
-      setCount(newScore)
+      var newScore = playerScore + 1
+      setPlayerScore(newScore)
+      alert('Joueur a gagné')
     }
     setShowResult(true)
   }
@@ -51,7 +63,7 @@ function App() {
       <div className='gameInfo' >
         <p>Rock - Paper - Scissors</p>
         <p>Round {round}</p>
-        <p>Score : {round - count - 1} vs {count}</p>
+        <p>Score : {compScore} vs {playerScore}</p>
         {(showResult) && <p>{result} !</p>}
       </div>
       <div className='player' >

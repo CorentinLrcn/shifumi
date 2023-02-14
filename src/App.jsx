@@ -15,13 +15,12 @@ function App() {
   const [round, setRound] = useState(1)
   const [computerHand, setComputerHand] = useState(computerChoice())
   const [result, setResult] = useState('Egalite')
-  const [alertText, setAlertText] = useState('Egalite')
 
   const [showResult, setShowResult] = useState(false)
 
-  function alertUser() {
-    alert(alertText)
-  }
+  Notification.requestPermission().then((result) => {
+    console.log(result)
+  })
 
   function reveal(playerChoice) {
     setComputerHand(computerChoice())
@@ -36,7 +35,8 @@ function App() {
       setRound(newRound)
       var newScore = compScore + 1
       setCompScore(newScore)
-      alert('Ordinateur a gagné')
+      //alert('Ordinateur a gagné')
+      new Notification('Ordinateur a gagné')
 
     } else {
       setResult('Gagné')
@@ -44,7 +44,8 @@ function App() {
       setRound(newRound)
       var newScore = playerScore + 1
       setPlayerScore(newScore)
-      alert('Joueur a gagné')
+      //alert('Joueur a gagné')
+      new Notification('Joueur a gagné')
     }
     setShowResult(true)
   }

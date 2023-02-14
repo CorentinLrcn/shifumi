@@ -29,7 +29,6 @@ function App() {
     console.log(computerHand)
     if (playerChoice == computerHand) {
       setResult('Egalite')
-      alert('Egalite')
 
     } else if ((playerChoice == 'Rock' && computerHand == 'Paper') || (playerChoice == 'Paper' && computerHand == 'Scissors') || (playerChoice == 'Scissors' && computerHand == 'Rock')) {
       setResult('Perdu')

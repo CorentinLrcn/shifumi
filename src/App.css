@@ -15,10 +15,6 @@
   flex: 1;
 }
 
-.compRock {
-  border-color: aqua;
-}
-
 .gameInfo { 
   flex: 1;
   justify-content: center;
@@ -43,6 +39,10 @@ img {
   will-change: filter;
   transition: filter 300ms;
   background-color: transparent;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #b40404)
 }
 
 @keyframes logo-spin {

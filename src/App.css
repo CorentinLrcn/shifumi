@@ -15,6 +15,10 @@
   flex: 1;
 }
 
+.compRock {
+  border-color: aqua;
+}
+
 .gameInfo { 
   flex: 1;
   justify-content: center;
